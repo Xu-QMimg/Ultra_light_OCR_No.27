@@ -1,5 +1,4 @@
 #teacher is baidu pretrained model
-#
 Global:
   use_gpu: true
   epoch_num: 500
@@ -82,8 +81,8 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /dataset/train/
-    label_file_list: ["/home/public/data/OCRimages/train_list.txt"]
+    data_dir: /home/aistudio/data/data87746/traindata/TrainImages
+    label_file_list: ["/home/aistudio/data/data87746/traindata/LabelTrain.txt"]
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -103,8 +102,8 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: /dataset/test/
-    label_file_list: ["/home/public/data/OCRimages/train_list.txt"]
+    data_dir: /home/aistudio/data/data87746/traindata/TrainImages
+    label_file_list: ["/home/aistudio/data/data87746/traindata/LabelTrain.txt"]
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

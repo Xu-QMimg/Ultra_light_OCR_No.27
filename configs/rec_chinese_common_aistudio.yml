@@ -7,7 +7,7 @@ Global:
   save_epoch_step: 3
   # evaluation is run every 5000 iterations after the 4000th iteration
   eval_batch_step: [0, 2000]
-  cal_metric_during_train: True
+  cal_metric_during_train: False
   pretrained_model:
   checkpoints:
   save_inference_dir:
@@ -61,8 +61,8 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /dataset/train/
-    label_file_list: ["./train_data/train_list.txt"]
+    data_dir: /home/aistudio/data/data87746/traindata/TrainImages
+    label_file_list: ["/home/aistudio/data/data87746/traindata/LabelTrain.txt"]
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -75,15 +75,15 @@ Train:
           keep_keys: ['image', 'label', 'length'] # dataloader will return list in this order
   loader:
     shuffle: True
-    batch_size_per_card: 256
+    batch_size_per_card: 64
     drop_last: True
-    num_workers: 8
+    num_workers: 0
 
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: /dataset/test/
-    label_file_list: ["./train_data/val_list.txt"]
+    data_dir: /home/aistudio/data/data87746/traindata/TrainImages
+    label_file_list: ["/home/aistudio/data/data87746/traindata/LabelTrain.txt"]
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -97,4 +97,4 @@ Eval:
     shuffle: False
     drop_last: False
     batch_size_per_card: 256
-    num_workers: 8
+    num_workers: 0
