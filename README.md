@@ -28,7 +28,7 @@ python tools/infer_rec.py -c "/output/distllation/config.yml" -o Global.infer_im
 
 ## 训练
 ### step1 数据准备：请自行下载比赛数据集或参考[训练文件](https://github.com/simplify23/PaddleOCR/blob/release/2.1/doc/doc_ch/recognition.md )
-如果需要自定义，请一并修改配置文件
+如果需要自定义，请一并修改[配置文件](configs/)
 - 训练集路径：
 ```
 |-dataset
