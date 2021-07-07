@@ -61,7 +61,7 @@ python tools/infer_rec.py -c "/output/distllation/config.yml" -o Global.infer_im
 ### step2: 启动教师模型训练
 ```
 cd Ultra_light_OCR_No.27
-python3 -m paddle.distributed.launch --log_dir=./debug/ --gpus '0,1' ./tools/train.py -c ./configs/distillation/rec_chinese_common_train_v2.0.yml
+python3 -m paddle.distributed.launch --log_dir=./debug/ --gpus '0,1' ./tools/train.py -c ./configs/rec_chinese_common_train_v2.0.yml
 ```
 
 ### step3: 启动学生模型训练
