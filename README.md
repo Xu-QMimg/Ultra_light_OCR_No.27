@@ -9,7 +9,7 @@
 ## 算法介绍
 
 ## 环境部署
-- **环境部署和[PPOCR](https://github.com/PaddlePaddle/PaddleOCR)完全一致**，环境尽可能按官方环境来（值得注意的是python3.8环境似乎不支持U-mobilenet的代码内容）
+- **环境部署和[PPOCR](https://github.com/PaddlePaddle/PaddleOCR)完全一致**
 - python =3.7
 - PaddlePaddle-gpu = 2.0.2
 
