@@ -28,15 +28,7 @@
     |- Train_000001.jpg
     |- ...
 ```
-- 验证集路径：
-- **我们使用训练集的图片制作了验证集**，制作代码见```utils/process_label.py```
-- 验证集的标签我们放到```dataset/val/labelval.txt```
-```
-|-dataset
-  |-val
-    |- labelval.txt
-    |- ...
-```
+
 - 测试集路径：
 ```
 |-dataset
