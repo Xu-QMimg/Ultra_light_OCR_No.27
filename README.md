@@ -15,6 +15,56 @@
 - python =3.7
 - PaddlePaddle-gpu = 2.0.2
 
+## 如何运行
+### step1 数据准备：请自行下载比赛数据集或参考[训练文件](https://github.com/simplify23/PaddleOCR/blob/release/2.1/doc/doc_ch/recognition.md )
+如果需要自定义，请一并修改配置文件
+- 训练集路径：
+```
+|-dataset
+  |-train
+    |- labeltrain.txt    #标签
+    |- Train_000000.jpg
+    |- Train_000001.jpg
+    |- ...
+```
+- 验证集路径：
+- **我们使用训练集的图片制作了验证集**，制作代码见```utils/process_label.py```
+- 验证集的标签我们放到```dataset/val/labelval.txt```
+```
+|-dataset
+  |-val
+    |- labelval.txt
+    |- ...
+```
+- 测试集路径：
+```
+|-dataset
+  |-test
+    |- Test_000000.jpg
+    |- ...
+```
+
+### step2: 启动教师模型训练
+```
+cd Ultra_light_OCR_No.27
+python3 -m paddle.distributed.launch --log_dir=./debug/ --gpus '0,1' ./tools/train.py -c ./configs/distillation/rec_chinese_common_train_v2.0.yml
+```
+
+### step3: 启动学生模型训练
+```
+cd Ultra_light_OCR_No.27
+python3 -m paddle.distributed.launch --log_dir=./debug/ --gpus '0,1' ./tools/train_kd.py -c ./configs/distillation.yml
+```
+
+### step4: 导出模型
+```
+python3 tools/export_model.py -c "/output/distllation/config.yml" -o Global.pretrained_model="/output/distllation/best_accuracy" Global.save_inference_dir=./inference/distllation
+```
+### step5：预测
+```
+python tools/infer_rec.py -c "/output/distllation/config.yml" -o Global.infer_img="/data/OCRimages/TestBImages/" Global.pretrained_model="/output/distllation/best_accuracy"
+```
+
 ## License
 
 [MIT](LICENSE) © Richard Littauer
