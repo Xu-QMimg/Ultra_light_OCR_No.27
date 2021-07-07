@@ -15,6 +15,9 @@
 - **环境部署和[PPOCR](https://github.com/PaddlePaddle/PaddleOCR)完全一致**
 - python =3.7
 - PaddlePaddle-gpu = 2.0.2
+```
+python3.7 -m pip install -r requirements.txt
+```
 
 ## 测试
 下载模型[百度网盘链接](https://pan.baidu.com/s/1y5cGG6CtZ4OI0BHrt2iosw)，提取码：f8pl 
