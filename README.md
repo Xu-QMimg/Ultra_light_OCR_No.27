@@ -15,10 +15,12 @@
 
 ## 一、算法介绍
 ### 教师模型
-教师模型配置文件直接使用rec_chinese_common_v2.0进行训练，
+教师模型配置文件直接使用rec_chinese_common_v2.0进行训练
 ### 学生模型
-学生模型使用+BiLSTM
+学生模型使用Mobilenet_v3_small_x1+BiLSTM+ctc进行训练
 ### 蒸馏策略
+可以使用在线蒸馏及离线蒸馏两种方式，因显存限制本项目采取离线蒸馏的方式训练。
+蒸馏的损失函数选用KL散度损失并加入衰减，随着训练次数的递增减小教师模型的指导程度。
 
 ## 二、环境部署
 - **环境部署和[PPOCR](https://github.com/PaddlePaddle/PaddleOCR)完全一致**
