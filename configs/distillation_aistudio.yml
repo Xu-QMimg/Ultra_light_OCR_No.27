@@ -6,11 +6,12 @@ Global:
   print_batch_step: 10
   save_model_dir: ./output/distllation
   save_epoch_step: 3
-  # evaluation is run every 5000 iterations after the 4000th iteration
-  eval_batch_step: [0, 5000]
+  # evaluation is run every 2000 iterations after the 4000th iteration
+  eval_batch_step: [0, 2000]
   cal_metric_during_train: False
   pretrained_model: 
   pretrained_model_teacher: ./output/rec_chinese_common_v2.0/best_accuracy
+  #./output/rec_chinese_common_v2.0/best_accuracy
   checkpoints: 
   save_inference_dir:
   use_visualdl: False
@@ -95,9 +96,9 @@ Train:
           keep_keys: ['image', 'label', 'length'] # dataloader will return list in this order
   loader:
     shuffle: True
-    batch_size_per_card: 50
+    batch_size_per_card: 64
     drop_last: True
-    num_workers: 8
+    num_workers: 0
 
 Eval:
   dataset:
@@ -116,5 +117,5 @@ Eval:
   loader:
     shuffle: False
     drop_last: False
-    batch_size_per_card: 50
-    num_workers: 8
+    batch_size_per_card: 64
+    num_workers: 0
