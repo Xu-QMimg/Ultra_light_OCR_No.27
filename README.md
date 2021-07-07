@@ -65,7 +65,7 @@ python3 tools/export_model.py -c "/output/distllation/config.yml" -o Global.pret
 ```
 ### step5：预测
 ```
-python tools/infer_rec.py -c "/output/distllation/config.yml" -o Global.infer_img="/data/OCRimages/TestBImages/" Global.pretrained_model="/output/distllation/best_accuracy"
+python tools/infer_rec.py -c "/output/distllation/config.yml" -o Global.infer_img="/dataset/test/" Global.pretrained_model="/output/distllation/best_accuracy"
 ```
 
 ## License
