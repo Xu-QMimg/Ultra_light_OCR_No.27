@@ -8,14 +8,19 @@
 - 模型及训练日志：[百度网盘链接](https://pan.baidu.com/s/1y5cGG6CtZ4OI0BHrt2iosw)，提取码：f8pl 
 
 ## 目录
-- [蒸馏算法](#算法介绍)
-- [环境部署](#环境部署)
-- [测试](#测试)
-- [训练](#训练)
+- [蒸馏算法](#一、算法介绍)
+- [环境部署](#二、环境部署)
+- [测试](#三、测试)
+- [训练](#四、训练)
 
-## 算法介绍
+## 一、算法介绍
+### 教师模型
 
-## 环境部署
+### 学生模型
+
+### 蒸馏策略
+
+## 二、环境部署
 - **环境部署和[PPOCR](https://github.com/PaddlePaddle/PaddleOCR)完全一致**
 - python =3.7
 - PaddlePaddle-gpu = 2.0.2
@@ -23,14 +28,14 @@
 python3.7 -m pip install -r requirements.txt
 ```
 
-## 测试
+## 三、测试
 下载模型[百度网盘链接](https://pan.baidu.com/s/1y5cGG6CtZ4OI0BHrt2iosw)，提取码：f8pl 
 ```
 cd Ultra_light_OCR_No.27
 python tools/infer_rec.py -c "/output/distllation/config.yml" -o Global.infer_img="/data/OCRimages/TestBImages/" Global.pretrained_model="/output/distllation/best_accuracy"
 ```
 
-## 训练
+## 四、训练
 ### step1 数据准备：请自行下载比赛数据集或参考[训练文件](https://github.com/simplify23/PaddleOCR/blob/release/2.1/doc/doc_ch/recognition.md )
 如果需要自定义，请一并修改[配置文件](configs/)
 - 训练集路径：
